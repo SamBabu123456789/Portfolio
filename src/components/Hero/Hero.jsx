@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowDown, FiGithub, FiLinkedin, FiFileText, FiSend } from "react-icons/fi";
+import { SiLeetcode } from "react-icons/si";
 import { portfolioData } from "../../data/portfolioData";
 import Magnetic from "./Magnetic";
 import HeroIllustration from "./HeroIllustration";
 
 export default function Hero() {
-  const { name, titles, resumeUrl, github, linkedin } = portfolioData.personalInfo;
+  const { name, titles, resumeUrl, github, linkedin, leetcode } = portfolioData.personalInfo;
   const [titleIndex, setTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -150,6 +151,16 @@ export default function Hero() {
             <div className="flex items-center space-x-2 pl-2">
               <Magnetic>
                 <a
+                  href={linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all text-lg cursor-pointer"
+                >
+                  <FiLinkedin />
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
                   href={github}
                   target="_blank"
                   rel="noreferrer"
@@ -160,12 +171,13 @@ export default function Hero() {
               </Magnetic>
               <Magnetic>
                 <a
-                  href={linkedin}
+                  href={leetcode}
                   target="_blank"
                   rel="noreferrer"
                   className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-white/10 transition-all text-lg cursor-pointer"
+                  aria-label="LeetCode Profile"
                 >
-                  <FiLinkedin />
+                  <SiLeetcode />
                 </a>
               </Magnetic>
             </div>

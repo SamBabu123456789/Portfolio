@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { SiLeetcode } from "react-icons/si";
 import { portfolioData } from "../../data/portfolioData";
 
 export default function Navbar() {
@@ -102,6 +103,14 @@ export default function Navbar() {
           {/* Desktop Socials */}
           <div className="hidden md:flex items-center space-x-4">
             <a 
+              href={portfolioData.personalInfo.linkedin} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-zinc-400 hover:text-white transition-colors text-lg"
+            >
+              <FiLinkedin />
+            </a>
+            <a 
               href={portfolioData.personalInfo.github} 
               target="_blank" 
               rel="noreferrer" 
@@ -110,12 +119,13 @@ export default function Navbar() {
               <FiGithub />
             </a>
             <a 
-              href={portfolioData.personalInfo.linkedin} 
+              href={portfolioData.personalInfo.leetcode} 
               target="_blank" 
               rel="noreferrer" 
               className="text-zinc-400 hover:text-white transition-colors text-lg"
+              aria-label="LeetCode Profile"
             >
-              <FiLinkedin />
+              <SiLeetcode />
             </a>
             <button 
               onClick={() => handleScrollTo("contact")}
@@ -169,11 +179,14 @@ export default function Navbar() {
             </div>
             
             <div className="flex space-x-6 mt-12 text-2xl text-zinc-400">
+              <a href={portfolioData.personalInfo.linkedin} target="_blank" rel="noreferrer" className="hover:text-white">
+                <FiLinkedin />
+              </a>
               <a href={portfolioData.personalInfo.github} target="_blank" rel="noreferrer" className="hover:text-white">
                 <FiGithub />
               </a>
-              <a href={portfolioData.personalInfo.linkedin} target="_blank" rel="noreferrer" className="hover:text-white">
-                <FiLinkedin />
+              <a href={portfolioData.personalInfo.leetcode} target="_blank" rel="noreferrer" className="hover:text-white" aria-label="LeetCode Profile">
+                <SiLeetcode />
               </a>
               <button 
                 onClick={() => handleScrollTo("contact")} 
