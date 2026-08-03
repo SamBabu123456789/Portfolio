@@ -117,12 +117,13 @@ export default function Navbar() {
             >
               <FiLinkedin />
             </a>
-            <a 
-              href={`mailto:${portfolioData.personalInfo.email}`} 
-              className="text-zinc-400 hover:text-white transition-colors text-lg"
+            <button 
+              onClick={() => handleScrollTo("contact")}
+              className="text-zinc-400 hover:text-white transition-colors text-lg cursor-pointer bg-transparent border-0 p-0"
+              aria-label="Contact Section"
             >
               <FiMail />
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -174,9 +175,13 @@ export default function Navbar() {
               <a href={portfolioData.personalInfo.linkedin} target="_blank" rel="noreferrer" className="hover:text-white">
                 <FiLinkedin />
               </a>
-              <a href={`mailto:${portfolioData.personalInfo.email}`} className="hover:text-white">
+              <button 
+                onClick={() => handleScrollTo("contact")} 
+                className="hover:text-white cursor-pointer bg-transparent border-0 p-0"
+                aria-label="Contact Section"
+              >
                 <FiMail />
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
