@@ -199,15 +199,6 @@ export default function Contact() {
             {/* Social Connect Badge */}
             <div className="flex space-x-4 pt-2">
               <a
-                href={github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-zinc-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all font-display text-sm cursor-pointer"
-              >
-                <FiGithub />
-                <span>GitHub</span>
-              </a>
-              <a
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
@@ -215,6 +206,15 @@ export default function Contact() {
               >
                 <FiLinkedin />
                 <span>LinkedIn</span>
+              </a>
+              <a
+                href={github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-zinc-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all font-display text-sm cursor-pointer"
+              >
+                <FiGithub />
+                <span>GitHub</span>
               </a>
             </div>
 

@@ -7,6 +7,7 @@ export const portfolioData = {
     phone: "+91 9398890257",
     github: "https://github.com/SamBabu123456789",
     linkedin: "https://www.linkedin.com/in/sam-babu-b95288378/",
+    leetcode: "https://leetcode.com/u/___sam17/",
     resumeUrl: "#", // User can replace with actual uploaded resume link
   },
   education: [

@@ -12,12 +12,8 @@ export default function Footer() {
 
   return (
     <footer className="py-12 border-t border-white/5 bg-black/20 relative z-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-end gap-6">
         
-        {/* Author sign */}
-        <p className="text-zinc-500 text-xs md:text-sm font-mono tracking-wide">
-          Made with ❤️ by <span className="text-zinc-300 font-semibold">Sam Babu</span>
-        </p>
 
         {/* Dynamic Back to top button */}
         <div className="flex items-center space-x-1.5 text-xs text-zinc-500 font-mono">
