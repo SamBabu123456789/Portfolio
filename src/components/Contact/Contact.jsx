@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiPhone, FiSend, FiCopy, FiCheckCircle } from "react-icons/fi";
 import { portfolioData } from "../../data/portfolioData";
 import confetti from "canvas-confetti";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const { email, phone, github, linkedin } = portfolioData.personalInfo;
@@ -38,24 +39,57 @@ export default function Contact() {
 
     if (Object.keys(errors).length === 0) {
       setIsSubmitting(true);
-      
-      // Simulate form submission API delay
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSuccess(true);
-        setFormData({ name: "", email: "", message: "" });
 
-        // Trigger confetti celebration!
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#4F46E5", "#06B6D4", "#ffffff"]
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        console.warn("EmailJS credentials are missing. Falling back to local success simulator.");
+        // Simulated success simulation for testing
+        setTimeout(() => {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormData({ name: "", email: "", message: "" });
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ["#4F46E5", "#06B6D4", "#ffffff"]
+          });
+          setTimeout(() => setIsSuccess(false), 5000);
+        }, 1200);
+        return;
+      }
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        to_name: "Polimetla Sam Babu"
+      };
+
+      emailjs.send(serviceId, templateId, templateParams, publicKey)
+        .then((result) => {
+          console.log("EmailJS dispatch success:", result.text);
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormData({ name: "", email: "", message: "" });
+          
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ["#4F46E5", "#06B6D4", "#ffffff"]
+          });
+
+          setTimeout(() => setIsSuccess(false), 5000);
+        })
+        .catch((error) => {
+          console.error("EmailJS dispatch failure:", error);
+          setIsSubmitting(false);
+          setFormErrors({ submit: "Failed to dispatch message. Please try again or copy email directly." });
         });
-
-        // Hide success message after 5 seconds
-        setTimeout(() => setIsSuccess(false), 5000);
-      }, 1500);
     }
   };
 
@@ -76,15 +110,6 @@ export default function Contact() {
         
         {/* Section Header */}
         <div className="text-left mb-16 space-y-2">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-xs font-mono tracking-widest text-brand-cyan uppercase"
-          >
-            05 / Connection
-          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -278,6 +303,10 @@ export default function Contact() {
                         <p className="text-red-500 text-xs font-mono mt-1">{formErrors.message}</p>
                       )}
                     </div>
+
+                    {formErrors.submit && (
+                      <p className="text-red-500 text-xs font-mono text-center mt-1">{formErrors.submit}</p>
+                    )}
 
                     {/* Submit Button */}
                     <button

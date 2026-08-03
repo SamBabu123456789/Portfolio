@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { 
   FaJava, FaPython, FaHtml5, FaCss3Alt, FaReact, FaNodeJs, 
-  FaGitAlt, FaGithub, FaDocker 
+  FaGitAlt, FaGithub, FaDocker, FaWindows
 } from "react-icons/fa";
 import { 
   SiCplusplus, SiTailwindcss, SiExpress, SiMongodb, 
@@ -23,6 +23,7 @@ const iconMap = {
   "CSS": <FaCss3Alt className="text-[#1572B6]" />,
   "JavaScript": <span className="text-[#F7DF1E] font-bold">JS</span>,
   "React": <FaReact className="text-[#61DAFB] animate-spin-slow" />,
+  "React.js": <FaReact className="text-[#61DAFB] animate-spin-slow" />,
   "Tailwind CSS": <SiTailwindcss className="text-[#06B6D4]" />,
   "Node.js": <FaNodeJs className="text-[#339933]" />,
   "Express.js": <SiExpress className="text-white" />,
@@ -30,17 +31,22 @@ const iconMap = {
   "SQL": <DiMysql className="text-[#4479A1]" />,
   "Firebase": <SiFirebase className="text-[#FFCA28]" />,
   "JWT": <SiJsonwebtokens className="text-[#d63aff]" />,
+  "JWT Authentication": <SiJsonwebtokens className="text-[#d63aff]" />,
   "REST APIs": <TbApi className="text-brand-cyan text-xl" />,
+  "Rest APIs": <TbApi className="text-brand-cyan text-xl" />,
   "Gemini API": <SiGoogle className="text-[#1a73e8]" />,
-  "Git & GitHub": <FaGitAlt className="text-[#F05032]" />,
+  "Git": <FaGitAlt className="text-[#F05032]" />,
+  "GitHub": <FaGithub className="text-white" />,
   "Docker": <FaDocker className="text-[#2496ED]" />,
   "VS Code": <TbBrandVscode className="text-[#007ACC]" />,
+  "Visual Studio Code": <TbBrandVscode className="text-[#007ACC]" />,
   "Postman": <SiPostman className="text-[#FF6C37]" />,
   "Vercel": <SiVercel className="text-white" />,
   "Render": <SiRender className="text-[#46E3B7]" />,
   "Netlify": <SiNetlify className="text-[#00C8BC]" />,
   "Antigravity": <FiTriangle className="text-brand-cyan animate-pulse rotate-180" />,
-  "Bruno": <FiZap className="text-[#eab308] animate-pulse" />
+  "Bruno": <FiZap className="text-[#eab308] animate-pulse" />,
+  "Windows 11": <FaWindows className="text-[#0078d4]" />
 };
 
 export default function Skills() {
@@ -74,15 +80,6 @@ export default function Skills() {
         
         {/* Section Header */}
         <div className="text-left mb-16 space-y-2">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-xs font-mono tracking-widest text-brand-cyan uppercase"
-          >
-            02 / Expertises
-          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

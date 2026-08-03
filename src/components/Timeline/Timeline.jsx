@@ -69,15 +69,6 @@ export default function Timeline() {
         
         {/* Section Header */}
         <div className="text-left mb-20 space-y-2">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-xs font-mono tracking-widest text-brand-cyan uppercase"
-          >
-            04 / Benchmarks
-          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
