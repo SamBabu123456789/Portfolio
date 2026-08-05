@@ -90,12 +90,5 @@ export const portfolioData = {
       liveDemo: "https://web-calculator-coral.vercel.app/",
       github: "https://github.com/SamBabu123456789/Web_Calculator"
     }
-  ],
-  achievements: [
-    {
-      metric: "70+",
-      label: "LeetCode Problems Solved",
-      description: "Solved 70+ Data Structures and Algorithms problems on LeetCode using C++ and Python across Arrays, Linked Lists, Trees, Dynamic Programming, and Graph problems through consistent practice."
-    }
   ]
 };
