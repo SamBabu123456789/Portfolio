@@ -15,7 +15,6 @@ export default function Navbar() {
     { label: "About", target: "about" },
     { label: "Skills", target: "skills" },
     { label: "Projects", target: "projects" },
-    { label: "Achievements", target: "achievements" },
     { label: "Contact", target: "contact" },
   ];
 
