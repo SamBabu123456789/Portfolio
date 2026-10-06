@@ -88,7 +88,8 @@ export default function Contact() {
         .catch((error) => {
           console.error("EmailJS dispatch failure:", error);
           setIsSubmitting(false);
-          setFormErrors({ submit: "Failed to dispatch message. Please try again or copy email directly." });
+          const errorMsg = error?.text || error?.message || JSON.stringify(error);
+          setFormErrors({ submit: `Failed to send: ${errorMsg}. Please copy my email directly.` });
         });
     }
   };
